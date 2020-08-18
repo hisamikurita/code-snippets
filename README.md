@@ -1,1 +1,4 @@
 # module
+・ smoothscroll
+・ checkdevice
+・ parallax
