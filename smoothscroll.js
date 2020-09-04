@@ -4,7 +4,7 @@ export default class SmoothScroll {
    */
   constructor() {
     this.init();
-    this._getParam();
+    this._getBuffer();
     this.onScroll();
     this.onResize();
   }
