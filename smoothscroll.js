@@ -22,10 +22,10 @@ export default class SmoothScroll {
     this.buffer = 0;
   }
   /**
-   * @descroption パラメーターの取得
+   * @descroption バッファの取得
    */
-  _getParam() {
-    this.headerLength = document.querySelector('').clientHeight;
+  _getBuffer() {
+    this.headerLength = document.querySelector('.header-pc').clientHeight;
     this.buffer = this.headerLength;
   }
   /**
@@ -63,7 +63,7 @@ export default class SmoothScroll {
    */
   onResize() {
     window.addEventListener('resize', () => {
-      this._getParam();
+      this._getBuffer();
     });
   }
 }
