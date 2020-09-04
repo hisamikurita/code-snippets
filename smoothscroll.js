@@ -1,15 +1,37 @@
 export default class SmoothScroll {
-  constructor(clickElm) {
-    this.clickElm = clickElm;
+  /**
+   * @classdesc 自作スムーススクロール機能
+   */
+  constructor() {
+    this.init();
+    this._getParam();
+    this.onScroll();
+    this.onResize();
+  }
+  /**
+   * @descroption クラスメンバ変数の初期化
+   */
+  init() {
+    this.clickElm = document.querySelectorAll('.js-smooth-scroll');
     this.targetId = null;
     this.targetElm = null;
+    this.headerLength = 0;
     this.rectTop = 0;
     this.offsetTop = 0;
     this.top = 0;
-    //固定ヘッダーの高さ
-    this.buffer = 138;
+    this.buffer = 0;
   }
-  init() {
+  /**
+   * @descroption パラメーターの取得
+   */
+  _getParam() {
+    this.headerLength = document.querySelector('.header-pc').clientHeight;
+    this.buffer = this.headerLength;
+  }
+  /**
+   * @descroption ターゲットをクリックした時、スムーススクロールが発火する
+   */
+  onScroll() {
     [...this.clickElm].forEach((target) => {
       target.addEventListener('click', (e) => {
 
@@ -26,6 +48,7 @@ export default class SmoothScroll {
         // 現在のスクロール距離
         this.offsetTop = window.pageYOffset;
 
+        // 画面上部から要素までの距離 + 現在のスクロール距離 - ヘッダーの高さ
         this.top = this.rectTop + this.offsetTop - this.buffer;
 
         window.scrollTo({
@@ -33,6 +56,14 @@ export default class SmoothScroll {
           behavior: "smooth"
         });
       });
+    });
+  }
+  /**
+   * @descroption リサイズイベント
+   */
+  onResize() {
+    window.addEventListener('resize', () => {
+      this._getParam();
     });
   }
 }
