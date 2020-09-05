@@ -1,4 +1,7 @@
 class checkDevice {
+  /**
+   * @classdesc ブラウザ・デバイス判定機能
+   */
   constructor() {
     const ua = navigator.userAgent.toLowerCase();
 
@@ -19,6 +22,9 @@ class checkDevice {
     this.android = ua.indexOf('android') !== -1;
   }
 
+  /**
+   * @description SPデバイスだったときは true を返す
+   */
   isSp() {
     if (this.sp) {
       return true;
@@ -28,6 +34,21 @@ class checkDevice {
     }
   }
 
+  /**
+   * @description Androidデバイスだったときは true を返す
+   */
+  isAndroid() {
+    if (this.android) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  /**
+   * @description タブレットデバイスだったときは true を返す
+   */
   isTab() {
     if (this.tab) {
       return true;
@@ -37,6 +58,9 @@ class checkDevice {
     }
   }
 
+  /**
+   * @description タッチイベントが可能だったときは true を返す
+   */
   isTouch() {
     if (this.touch) {
       return true;
@@ -46,6 +70,9 @@ class checkDevice {
     }
   }
 
+  /**
+   * @description IEブラウザだったときは true を返す
+   */
   isMSIE() {
     if (this.msie) {
       return true;
@@ -55,6 +82,9 @@ class checkDevice {
     }
   }
 
+  /**
+   * @description Edgeブラウザだったときは true を返す
+   */
   isEdge() {
     if (this.edge) {
       return true;
@@ -64,17 +94,11 @@ class checkDevice {
     }
   }
 
+  /**
+   * @description Safariブラウザだったときは true を返す
+   */
   isSafari() {
     if (this.safari) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-
-  isAndroid() {
-    if (this.android) {
       return true;
     }
     else {
