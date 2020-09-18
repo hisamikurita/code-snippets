@@ -29,7 +29,7 @@ export function replaceHead(data) {
 }
 
 /**
- * @descroption headタグ内のbodyタグの更新
+ * @descroption bodyタグの更新
  */
 export function replaceBody(data) {
     const newPageRawHTML = data.next.html;
