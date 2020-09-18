@@ -25,7 +25,7 @@ export default class SmoothScroll {
    * @descroption バッファの取得
    */
   _getBuffer() {
-    this.headerLength = document.querySelector('.header-pc').clientHeight;
+    this.headerLength = document.querySelector('').clientHeight;
     this.buffer = this.headerLength;
   }
   /**
