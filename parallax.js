@@ -1,5 +1,3 @@
-import CheckDevice from '../utility/check-device';
-
 export default class Parallax {
   constructor(target) {
     if (target instanceof Node) {
