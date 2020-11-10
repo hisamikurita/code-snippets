@@ -1,3 +1,5 @@
+import CheckDevice from 'path';
+
 export default class Parallax {
   constructor(target) {
     if (target instanceof Node) {
