@@ -7,9 +7,9 @@ class checkDevice {
 
     this.sp = ua.indexOf('iphone') !== -1 || ua.indexOf('android') !== -1 && ua.indexOf('mobile') !== -1;
 
-    this.tab = !this.sp && (this.ipad || ua.indexOf('android') !== -1);
+    this.ipad = ua.indexOf('ipad') !== -1 || (ua.indexOf('macintosh') !== -1 && 'ontouchend' in document);
 
-    this.ipad = ua.indexOf('ipad') !== -1 || (ua.indexOf('Macintosh') !== -1 && 'ontouchend' in document);
+    this.tab = !this.sp && (this.ipad || ua.indexOf('android') !== -1);
 
     this.touch = ('ontouchend' in document);
 
